@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Honeybee Queen Rearing Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Honeybee Queen Rearing Calculator</h1>
+        <h2>Inspired by <a href="https://www.youtube.com/watch?v=2XiY67rhbGc">Steve Clifford's queen rearing</a> video</h2>
+        
+        <h3>Select Date Type:</h3>
+        <label>
+            <input type="radio" name="dateType" value="grafting" checked onchange="calculateDates()" />
+            Grafting Date
+        </label>
+        <label>
+            <input type="radio" name="dateType" value="harvest" onchange="calculateDates()" />
+            Queen Cell Harvest Date
+        </label>
+        
+        <div id="dateInput">
+            <label for="date">Select Date:</label>
+            <input type="date" id="date" onchange="calculateDates()" />
+        </div>
+        
+        <div id="results" class="results">
+            <!-- Results will be displayed here -->
+        </div>
+    </div>
+    <script>
+        // Set the default date to today's date
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const currentDate = new Date();
+            const formattedDate = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}-${String(currentDate.getDate()).padStart(2, '0')}`;
+            console.log(formattedDate);
+            document.getElementById('date').value = formattedDate; // Set the value of the date input
+            calculateDates(); // Call calculateDates to render initial results
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
